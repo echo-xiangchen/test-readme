@@ -72,7 +72,47 @@ CALL apoc.import.csv(
   [{fileName: 'axtls-edge.csv', type: ''}],
   {delimiter: '\t', arrayDelimiter: ':'});
 ----
+'''
+- Then run the following query to find the entry and exit point of each component:
+----
+// var exit point of a comp
+WITH "MATCH (a)-[:parWrite]->(b) WHERE a.comp <> b.comp RETURN DISTINCT a.id" AS query
+CALL apoc.export.csv.query(query, "axtls-exitVar.csv", {})
+YIELD file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+RETURN file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data;
 
+// var entry point of a comp
+WITH "MATCH (a)-[:parWrite]->(b) WHERE a.comp <> b.comp RETURN DISTINCT b.id" AS query
+CALL apoc.export.csv.query(query, "axtls-entryVar.csv", {})
+YIELD file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+RETURN file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data;
+
+// func exit point of a comp
+WITH "MATCH (f1:cFunction)-[:call]->(f2:cFunction) WHERE f1.comp <> f2.comp RETURN DISTINCT f1.id" AS query
+CALL apoc.export.csv.query(query, "axtls-exitFunc.csv", {})
+YIELD file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+RETURN file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data;
+
+// func entry point of a comp
+WITH "MATCH (f1:cFunction)-[:call]->(f2:cFunction) WHERE f1.comp <> f2.comp RETURN DISTINCT f2.id" AS query
+CALL apoc.export.csv.query(query, "axtls-entryFunc.csv", {})
+YIELD file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data
+RETURN file, source, format, nodes, relationships, properties, time, rows, batchSize, batches, done, data;
+----
+The output files will also be saved in the `import` folder.
+'''
+- Then copy the following files to our local folder `demo/3-gen-exit-entry-Var-Func`:
+----
+axtls-entryVar.csv
+axtls-exitVar.csv
+axtls-entryFunc.csv
+axtls-exitFunc.csv
+----
+Then run the script to add entry and exit labels to corresponding nodes:
+----
+./run-add-labels.sh axtls
+----
+The modified `axtls-node.csv` now labels the nodes that are either an entry of exit point of a component.
 // end::demo[]
 
 
