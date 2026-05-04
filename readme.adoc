@@ -44,6 +44,8 @@ Note: I do not use `gradle build` because it casues too much errors. Instead, I 
 
 // tag::set-up-neo4j[]
 = Setting up Neo4j
+First you need to put the `.jar` file generated in last step into the `plugins` folder before you start Neo4j instance.
+
 
 
 
