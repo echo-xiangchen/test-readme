@@ -42,6 +42,17 @@ Note: I do not use `gradle build` because it casues too much errors. Instead, I 
 // end::intro[]
 
 
+// tag::set-up-neo4j[]
+= Setting up Neo4j
+
+
+
+
+// end::set-up-neo4j[]
+
+
+
+
 = Below are the original APOC README content (you may find useful information below)
 == Awesome Procedures for Neo4j {branch}.x
 
