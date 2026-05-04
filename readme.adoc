@@ -59,6 +59,8 @@ run-demo.sh
 ----
 This script will remove unnecessary columns of the factbase, and simplify the Presence Conditions.
 
+
+                
 - Copy the factbase in folder `2-simplify-conditions` into your Neo4j instance's `import` folder:
 ----
 axtls-node.csv
