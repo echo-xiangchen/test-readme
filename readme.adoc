@@ -59,19 +59,20 @@ run-demo.sh
 ----
 This script will remove unnecessary columns of the factbase, and simplify the Presence Conditions.
 '''
-. Copy the factbase from folder `2-simplify-conditions` into your Neo4j instance's `import` folder:
+- Copy the factbase from folder `2-simplify-conditions` into your Neo4j instance's `import` folder:
 ----
 axtls-node.csv
 axtls-edge.csv
 ----
 '''
-. Then run the following query to import the factbase into Neo4j:
+- Then run the following query to import the factbase into Neo4j:
 ----
 CALL apoc.import.csv(
   [{fileName: 'axtls-node.csv', labels: []}],
   [{fileName: 'axtls-edge.csv', type: ''}],
   {delimiter: '\t', arrayDelimiter: ':'});
 ----
+
 // end::demo[]
 
 
