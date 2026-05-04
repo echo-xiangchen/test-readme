@@ -8,16 +8,33 @@
 https://community.neo4j.com[image:https://img.shields.io/discourse/users?logo=discourse&server=https%3A%2F%2Fcommunity.neo4j.com[Discourse users]]
 https://discord.gg/neo4j[image:https://img.shields.io/discord/787399249741479977?logo=discord&logoColor=white[Discord]]
 
+// tag::intro[]
+= Introduction
 
-= Awesome Procedures for Neo4j {branch}.x
+This repo contains a demo for running our APOC extension with CFG checking.
 
-== Below are the original APOC README content
+// tag::cfg-verificaiton
+== CFG Verfication Path Finding 
+// tag::cfg-verification-text[]
+This is a fork version of the original https://github.com/neo4j-contrib/neo4j-apoc-procedures[APOC Github Project]. The reason why we did a fork was because to keep up with the Neo4J versions. It is important to note that for APOC to work properly, it needs to be consistent with the version of Neo4J. 
+
+In our forked version of APOC, we included new functions to help construct paths in queries. Specifically, it verifies the feasibility of the paths using a CFG-based verification. 
+
+== Creating the Jar File
+I do not use `gradle build` because it casues too much errors. Instead, I use `gradle shadow`. If you can figure something out with `gradle build`, feel free to do so.
+
+// end::cfg-verification-text[]
+// end::cfg-verification[]
+
+
+= Below are the original APOC README content (you may find useful information below)
+== Awesome Procedures for Neo4j {branch}.x
 
 // tag::readme[]
 
 == Introduction
 
-// tag::intro[]
+// tag::apoc-intro[]
 image::{img}/apoc.gif[float=right]
 
 // tag::intro-text[]
@@ -43,21 +60,6 @@ http://matrix.wikia.com/wiki/Apoc[Apoc^] was the technician and driver on board 
 *APOC* also stands for "Awesome Procedures On Cypher"
 // end::name-history-text[]
 // end::name-history[]
-
-// tag::cfg-verificaiton
-== CFG Verfication Path Finding 
-// tag::cfg-verification-text[]
-This is a fork version of the original https://github.com/neo4j-contrib/neo4j-apoc-procedures[APOC Github Project]. The reason why we did a fork was because to keep up with the Neo4J versions. It is important to note that for APOC to work properly, it needs to be consistent with the version of Neo4J. 
-
-In our forked version of APOC, we included new functions to help construct paths in queries. Specifically, it verifies the feasibility of the paths using a CFG-based verification. 
-
-
-
-=== Creating the Jar File
-I do not use `gradle build` because it casues too much errors. Instead, I use `gradle shadow`. If you can figure something out with `gradle build`, feel free to do so.
-
-// end::cfg-verification-text[]
-// end::cfg-verification[]
 
 
 
