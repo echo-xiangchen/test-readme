@@ -43,15 +43,29 @@ Note: I do not use `gradle build` because it casues too much errors. Instead, I 
 
 
 // tag::set-up-neo4j[]
-= Setting up Neo4j
-First you need to put the `.jar` file generated in last step into the `plugins` folder before you start Neo4j instance.
+== Setting up Neo4j
+First, you need to put the `.jar` file generated in the last step into the `plugins` folder before you start the Neo4j instance.
 
-
-
-
+The Neo4j version we use is `4.4.X`, make sure you download the correct version.
 
 // end::set-up-neo4j[]
 
+// tag::demo[]
+
+== Running Demo
+1. Go to the folder `demo`, and run:
+----
+run-demo.sh
+----
+This script will remove unnecessary columns of the factbase, and simplify the Presence Conditions.
+
+2. Copy the factbase in folder `2-simplify-conditions` into your Neo4j instance's `import` folder:
+----
+axtls-node.csv
+axtls-edge.csv
+----
+
+// end::demo[]
 
 
 
