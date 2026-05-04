@@ -13,7 +13,7 @@ https://discord.gg/neo4j[image:https://img.shields.io/discord/787399249741479977
 
 This repo contains a demo for running our APOC extension with CFG checking.
 
-// tag::cfg-verificaiton
+// tag::cfg-verificaiton[]
 == CFG Verfication Path Finding 
 // tag::cfg-verification-text[]
 This is a fork version of the original https://github.com/neo4j-contrib/neo4j-apoc-procedures[APOC Github Project]. The reason why we did a fork was because to keep up with the Neo4J versions. It is important to note that for APOC to work properly, it needs to be consistent with the version of Neo4J. 
@@ -39,6 +39,7 @@ Note: I do not use `gradle build` because it casues too much errors. Instead, I 
 
 // end::cfg-verification-text[]
 // end::cfg-verification[]
+// end::intro[]
 
 
 = Below are the original APOC README content (you may find useful information below)
