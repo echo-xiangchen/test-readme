@@ -53,13 +53,13 @@ The Neo4j version we use is `4.4.X`, make sure you download the correct version.
 // tag::demo[]
 
 == Running Demo
-1. Go to the folder `demo`, and run:
+- Go to the folder `demo`, and run:
 ----
 run-demo.sh
 ----
 This script will remove unnecessary columns of the factbase, and simplify the Presence Conditions.
 
-2. Copy the factbase in folder `2-simplify-conditions` into your Neo4j instance's `import` folder:
+- Copy the factbase in folder `2-simplify-conditions` into your Neo4j instance's `import` folder:
 ----
 axtls-node.csv
 axtls-edge.csv
