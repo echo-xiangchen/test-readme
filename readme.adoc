@@ -119,7 +119,27 @@ The modified `axtls-node.csv` now labels the nodes that are either an entry or e
 
 '''
 - Now go back to your Neo4j and update the database with the modified `axtls-node.csv` generated in the last step (you need to clean your database and re-import the updated factbase into Neo4j again).
-
+- Run the following query:
+----
+MATCH (a:cVariable)
+WITH *, apoc.cfgPath.nonRosFindPaths(a, {
+    endN : a,
+    relSeq : "varWrite|parWrite,varWrite|parWrite,varWrite|parWrite",
+    config : [
+        {name : "parWrite", startLabel : "cReturn", endLabel : "cVariable",
+        attribute : "cfgReturn,cfgInvoke", length : "2"}, 
+        {name : "parWrite", startLabel : "cVariable", endLabel : "cVariable",
+        attribute : "cfgInvoke", length : "1"}, 
+        {name : "retWrite", startLabel : "cReturn", endLabel : "cVariable",
+        attribute : "cfgReturn", length : "1"}, 
+        {name : "retWrite", startLabel : "cReturn", endLabel : "cReturn",
+        attribute : "cfgReturn", length : "1"}
+    ]
+}) As paths
+UNWIND paths As path
+RETURN DISTINCT path;
+----
+This query tries to find the triangle-shaped communication pattern with CFG checking.
 // end::demo[]
 
 
