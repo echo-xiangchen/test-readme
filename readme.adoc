@@ -66,6 +66,7 @@ axtls-edge.csv
 ----
 '''
 - Then run the following query to import the factbase into Neo4j:
+[source,cypher,subs=attributes]
 ----
 CALL apoc.import.csv(
   [{fileName: 'axtls-node.csv', labels: []}],
@@ -74,6 +75,7 @@ CALL apoc.import.csv(
 ----
 '''
 - Then run the following query to find the entry and exit point of each component:
+[source,cypher,subs=attributes]
 ----
 // var exit point of a comp
 WITH "MATCH (a)-[:parWrite]->(b) WHERE a.comp <> b.comp RETURN DISTINCT a.id" AS query
@@ -112,7 +114,10 @@ Then run the script to add entry and exit labels to corresponding nodes:
 ----
 ./run-add-labels.sh axtls
 ----
-The modified `axtls-node.csv` now labels the nodes that are either an entry of exit point of a component.
+The modified `axtls-node.csv` now labels the nodes that are either an entry or exit point of a component.
+'''
+- Now go back to your Neo4j and update the database with the modified `axtls-node.csv` generated in the last step (you need to clean your database and re-import the updated factbase into Neo4j again).
+
 // end::demo[]
 
 
