@@ -21,7 +21,16 @@ This is a fork version of the original https://github.com/neo4j-contrib/neo4j-ap
 In our forked version of APOC, we included new functions to help construct paths in queries. Specifically, it verifies the feasibility of the paths using a CFG-based verification. 
 
 == Creating the Jar File
-I do not use `gradle build` because it casues too much errors. Instead, I use `gradle shadow`. If you can figure something out with `gradle build`, feel free to do so.
+First go to the folder:
+----
+apoc-cfg
+----
+and run:
+----
+./gradlew shadow
+----
+After the funning finished, 
+Note: I do not use `gradle build` because it casues too much errors. Instead, I use `gradle shadow`. If you can figure something out with `gradle build`, feel free to do so.
 
 // end::cfg-verification-text[]
 // end::cfg-verification[]
