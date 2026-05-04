@@ -34,6 +34,7 @@ After the funning finished, go to the folder:
 full/build/libs
 ----
 You will find the `.jar` file named `apoc-4.4.0.8-all.jar`. This is the `.jar` file that we will use in Neo4j to call our queries.
+
 Note: I do not use `gradle build` because it casues too much errors. Instead, I use `gradle shadow`. If you can figure something out with `gradle build`, feel free to do so.
 
 // end::cfg-verification-text[]
