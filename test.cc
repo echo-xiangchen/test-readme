@@ -1,9 +1,6 @@
-void GraphApp::MSTPrim() {                          
-    if (kWeighted && kUndirected) {                
-        ...
-        clearVisited();                           
-        ...  // MST calculation
-    } else {                                      
-        cout << "Feature not enabled!" << endl;    
+void demo() {
+    if (feature_A) {
+        return;
     }
+    foo();
 }
