@@ -1,5 +1,5 @@
 void demo() {
-    if (feature_A) {
+    if (FA) {
         return;
     }
     foo();
